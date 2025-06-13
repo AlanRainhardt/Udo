@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Загрузчик УДО-скриншотов | ГБР ФСИН</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #161b22;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #58a6ff;
+    }
+    main {
+      padding: 1rem;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #238636;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin-top: 1rem;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <header>ГБР ФСИН | Загрузчик скриншотов УДО</header>
+  <main>
+    <label for="desc">Описание скриншота:</label>
+    <textarea id="desc" rows="3" placeholder="Введите описание (например, УДО Иванов И.И.)"></textarea>
+
+    <button onclick="openUpload()">Загрузить на ibb.org.ru</button>
+
+    <div id="uploadFrame" style="display:none;">
+      <h3>Форма загрузки:</h3>
+      <iframe id="ibbFrame" src="https://ibb.org.ru/?lang=ru"></iframe>
+    </div>
+  </main>
+
+  <script>
+    function openUpload() {
+      document.getElementById("uploadFrame").style.display = "block";
+      const desc = document.getElementById("desc").value;
+      if(desc) alert("Не забудьте указать описание скрина на сайте: " + desc);
+    }
+  </script>
+</body>
+</html>
